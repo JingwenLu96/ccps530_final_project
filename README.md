@@ -1,7 +1,6 @@
-# ccps530_final_project
+# Final Project: Interactive Dictionary 
 Name: Jingwen Lu    
-Online Demo: http://ccps530jl.com/dictionary/  
-Project Title: Interactive Dictionary  
+Online Demo: http://ccps530jl.com/dictionary/   
 License: MIT Licence 
 
 ## Getting Started
