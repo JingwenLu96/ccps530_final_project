@@ -1,7 +1,7 @@
 <?php 
   $database = "ccps530j_dictionary";
-  $user = "******";
-  $password = "******";
+  $user = "ccps530j_dictionary";
+  $password = "Wendy1996.";
   $host = "localhost";
 
     if($_POST['word']){  
@@ -39,7 +39,7 @@
 
       
       if ($db_result->num_rows > 0) {
-    // output data of each row
+      // output data of each row
         while($row = $db_result->fetch_assoc()) {
             $definition = $row['definition'];
             $audio_url = $row['audio_url'];
@@ -177,18 +177,33 @@ if($_POST['word']){
   </div>
   ");
 
-      if (strpos($art_url, $word) == true || strpos($art_url, 'merriam-webster') == false ){
-      echo("
-      <br/>
-      <div class='cap'>
-      <img src='$art_url' width='400'>
-      <br/>
-      <b>Caption: </b>
-      </div>
-      ");
-      echo parse($art_caption);
-      }
+    if (strpos($art_url, $word) == true && strpos($art_url, 'merriam') == true ) {
+          echo("
+          <br/>
+          <div class='cap'>
+          <img src='$art_url' width='400'>
+          <br/>
+          <b>Caption: </b>
+          </div>
+          ");
+          echo parse($art_caption);
+      
+    }
+    else
+    {
+        if ($art_url !== NULL && $art_url !== '') {
+          echo("
+          <br/>
+          <div class='cap'>
+          <img src='$art_url' width='400'>
+          <br/>
+          <b>Caption: </b>
+          </div>
+          ");
+          echo parse($art_caption);   
+        }   
 
+    }
 }
 ?>
 
