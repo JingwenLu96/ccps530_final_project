@@ -26,12 +26,18 @@ JQuery Plugins:
 
 Bootstrap 4
 
-## Steps 
+## Steps
 
+### Database
+Creating a database to get started
+
+The following fields are included in the database: id, word, definition, audio_url, art_url, art_caption.
+Setting up 'id' to be auto-increment and the primary key.
+'id' will be used as the identifier when the user try to edit or delete the record.
 ### Title Page
-Create a title page by using Bootstrap 4 components
+Creating a title page by using Bootstrap 4 components
 
-* Create the Navigation bar fixed to the top 
+* Creating the Navigation bar fixed to the top 
 
 ``` 
     <nav class="navbar navbar-expand-sm bg-light fixed-top">
@@ -41,7 +47,7 @@ Create a title page by using Bootstrap 4 components
         </ul>
     </nav>    
  ```
- * Design the title page as you wish, I have used the Jumbotron component and added a button on top
+ * Designing the title page as you wish, I have used the Jumbotron component and added a button on top
  ```
      <div class="jumbotron jumbotron-fluid">
             <div class="container">
@@ -52,7 +58,7 @@ Create a title page by using Bootstrap 4 components
 ```
 ### Search Page 
 Please note you have to be connected to a database for full functionality 
-* PHP file for database connection and API access
+* PHP section for database connection and API access
 ```
   <?php
   //Please connect to a database before going further 
@@ -97,29 +103,48 @@ Please note you have to be connected to a database for full functionality
           <p>A new word has been added to your database. You can check it on the 'Search History' tab.</p></div>");
   ?>
 ```
-* In HTML file, print each component of definition defined in PHP file accordingly. 
+* Adding HTML portion to print each component of definition defined in PHP section accordingly. 
+
 ### Data Table Page
   
-* Print Search History table by using data fields from the database  
+* Printing Search History table on this page by calling data fields from the database  
 * Adding EDIT and DELETE columns to the table 
+Creating buttons under these columns so that user will jump to the new page to continue on editing/deleting action
 
 > note: used JQuery Plugin: [fancybox](http://fancyapps.com/fancybox/3/) for lightbox effect on pictures 
 
 
 ### Edit Record
-* Set up the fields in data table that is avaliable for editing  
-* Update the record from data table by using SQL command, UPDATE
+* Setting up the fields in data table that is avaliable for editing  
+```
+    <form action="edit.php" method="POST" style="margin-bottom: 30px;">
+        <input type="hidden" name="new" value="1">
+
+        <input type="hidden" name="id" value="<?php echo $id;?>">
+
+        Definition: <input type="text" name="def" value ="<?php echo $def;?>"><br />        
+        Picture URL: <input type="text" name="art_url" value ="<?php echo $pic;?>"><br />
+        
+        Picture Caption: <input type="text" name="art_caption" value ="<?php echo $cap;?>"> <br />
+
+        <input type="submit" value="Update!">
+
+    </form>
+```
+* Updating the record from data table by using SQL command, UPDATE
 ```
   $update_sql = ("UPDATE search_result SET definition = '$def', art_url = '$pic', art_caption = '$cap' WHERE id = '$id';");
 
 ```
+> used [Dialog Box](https://jqueryui.com/dialog/) to popup notice for user to identify the edit has completed
+
 ### Delete Record 
-* Delete the record from data table by using SQL command, DELETE
+* Deleting the record from data table by using SQL command, DELETE
 ```
   $del_sql = ("DELETE FROM search_result WHERE id = '$id';");
 
 ```
-
+> used [Dialog Box](https://jqueryui.com/dialog/) to popup notice for user to identify the deletion has completed
 ## Learn More
 * [Bootstrap 4](https://www.w3schools.com/bootstrap4/default.asp)
 * [JQuery UI](https://jqueryui.com/)
