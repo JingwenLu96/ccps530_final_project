@@ -31,9 +31,9 @@ Bootstrap 4
 ### Database
 Creating a database to get started
 
-The following fields are included in the database: id, word, definition, audio_url, art_url, art_caption.
-Setting up 'id' to be auto-increment and the primary key.
-'id' will be used as the identifier when the user try to edit or delete the record.
+* The following fields are included in the database: id, word, definition, audio_url, art_url, art_caption.
+* Setting up 'id' to be auto-increment and the primary key.
+> 'id' will be used as the identifier when the user try to edit or delete the record.
 ### Title Page
 Creating a title page by using Bootstrap 4 components
 
@@ -109,7 +109,7 @@ Please note you have to be connected to a database for full functionality
   
 * Printing Search History table on this page by calling data fields from the database  
 * Adding EDIT and DELETE columns to the table 
-Creating buttons under these columns so that user will jump to the new page to continue on editing/deleting action
+* Creating buttons under these columns so that user will jump to the new page to continue on editing/deleting action
 
 > note: used JQuery Plugin: [fancybox](http://fancyapps.com/fancybox/3/) for lightbox effect on pictures 
 
